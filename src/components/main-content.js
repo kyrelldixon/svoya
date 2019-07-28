@@ -10,6 +10,9 @@ import useFullHeight from "../hooks/use-full-height"
 const MainContent = () => {
   const [isMenuOpen, openMenu, closeMenu] = useOnOff()
   const height = useFullHeight()
+  const isPortrait = () => {
+    return window.innerWidth < window.innerHeight;
+  }
 
   return (
     <section>
@@ -20,6 +23,10 @@ const MainContent = () => {
           <div className="w-full flex justify-between items-start leading-none z-50">
             <p className="font-bold">Logo</p>
             <MenuButton toggle={isMenuOpen ? closeMenu : openMenu} />
+          </div>
+          <div className="w-full flex flex-col justify-center items-center z-10 text-3xl">
+            <p>{ height }</p>
+            <p>{ isPortrait() ? 'portrait' : 'landscape'}</p>
           </div>
           <div className="leading-snug z-10">
             <h2 className="text-gray-100 text-xs">Interior</h2>
