@@ -12,14 +12,14 @@ const useFullHeight = () => {
 
   useEffect(() => {
     updateHeight()
-    window.addEventListener('resize', () => updateHeight())
-    window.addEventListener('orientationchange', () => updateHeight())
+    window.addEventListener('resize', updateHeight)
+    window.addEventListener('orientationchange', updateHeight)
 
     return () => {
-      window.removeEventListener('resize', () => updateHeight())
-      window.removeEventListener('orientationchange', () => updateHeight())
+      window.removeEventListener('resize', updateHeight)
+      window.removeEventListener('orientationchange', updateHeight)
     }
-  }, [height])
+  }, [])
 
   return height
 }
