@@ -11,6 +11,10 @@ const MainContent = () => {
   const [isMenuOpen, openMenu, closeMenu] = useOnOff()
   const height = useFullHeight()
   const isPortrait = () => {
+    if (typeof window === `undefined`) {
+      return false
+    }
+    
     return window.innerWidth < window.innerHeight;
   }
 
